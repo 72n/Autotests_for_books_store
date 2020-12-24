@@ -1,0 +1,28 @@
+1608715515049	geckodriver	INFO	Listening on 127.0.0.1:52097
+1608715518128	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\OLOFME~1\\AppData\\Local\\Temp\\rust_mozprofileQX1yFR"
+1608715552326	geckodriver	INFO	Listening on 127.0.0.1:52147
+1608715555387	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\OLOFME~1\\AppData\\Local\\Temp\\rust_mozprofileVhfxVH"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1608715557260	Marionette	INFO	Listening on port 52155
+1608715557437	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://stepik.azureedge.net/static/frontend-build/vendor.js?v=1607959417, line 2472: unreachable code after return statement
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+1608715587596	Marionette	INFO	Stopped listening on port 52155
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1608716290740	geckodriver	INFO	Listening on 127.0.0.1:59263
+1608716293800	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\OLOFME~1\\AppData\\Local\\Temp\\rust_mozprofileoBQm4w"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1608716295598	Marionette	INFO	Listening on port 59271
+1608716295857	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://selenium1py.pythonanywhere.com/ru/, line 374: ReferenceError: oscar is not defined
+1608716297072	Marionette	INFO	Stopped listening on port 59271
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
