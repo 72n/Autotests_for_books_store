@@ -8,14 +8,17 @@ class ProductPage(BasePage):
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.ALERT_BASKET_TOTAL), "Success message is presented, but should not be"
 
-    def test_can_add_product_to_basket(self):
+    def test_can_add_product_to_basket(self, func=0):
+        # параметр func отвечает за прохождение квиза, если он равен нулю, то вычисления не производятся
         book_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME).text
         book_price = self.browser.find_element(*ProductPageLocators.BOOK_PRICE).text
         add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         add_to_basket_button.click()
         time.sleep(1)
 
-        # BasePage.solve_quiz_and_get_code(self)
+        if func:
+            BasePage.solve_quiz_and_get_code(self)
+
         alert_book_name = self.browser.find_element(*ProductPageLocators.ALERT_BOOK_NAME).text
         assert alert_book_name == book_name, "another book added to basket"
         alert_basket_total = self.browser.find_element(*ProductPageLocators.ALERT_BASKET_TOTAL).text

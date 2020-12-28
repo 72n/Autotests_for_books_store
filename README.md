@@ -1,2 +1,5 @@
 # Autotests_for_books_store
-educational repository with autotests for books store pages for stepic autotests course
+Educational repository with autotests for books store pages for stepic autotests course.
+Increase delays if tests are failing.
+
+ ! ! ! all tests are in the test_book_store.py ! ! !

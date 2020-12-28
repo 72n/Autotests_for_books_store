@@ -7,7 +7,7 @@ import time
 
 
 class BasePage:
-    def __init__(self, browser, url, timeout=2):
+    def __init__(self, browser, url, timeout=5):
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)
@@ -57,12 +57,12 @@ class BasePage:
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
-        time.sleep(1)
+        time.sleep(2)
 
     def go_to_basket(self):
         link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         link.click()
-        time.sleep(1)
+        time.sleep(2)
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented, probably unauthorised user"

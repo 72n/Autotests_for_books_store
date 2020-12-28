@@ -5,7 +5,6 @@ from .pages.product_page import ProductPage
 import pytest
 
 
-@pytest.mark.skip
 class TestMainPage:
     def test_guest_should_see_login_link(self, browser):
         link = "http://selenium1py.pythonanywhere.com/"
@@ -29,7 +28,6 @@ class TestMainPage:
         time.sleep(1)
 
 
-@pytest.mark.skip
 class TestLoginPage:
     def test_login_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
@@ -39,23 +37,15 @@ class TestLoginPage:
         time.sleep(1)
 
 
-@pytest.mark.skip
+@pytest.mark.need_review
 class TestProductPageByGuest:
-    @pytest.mark.parametrize('link', (f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{i}" for i in range(0, 10) if i != 7))
-    def test_product_page(self, browser, link):
+    @pytest.mark.parametrize('link', (f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{i}" for i in range(0, 1) if i != 7))
+    def test_guest_can_add_product_to_basket(self, browser, link):  # для прохождения тестов со всеми вариантами предложения(offer) надо в range изменить 1 на 10
         page = ProductPage(browser, link)
         page.open()
         page.should_not_be_success_message()
-        page.test_can_add_product_to_basket()
-        # page.should_be_disappeared_success_message()
-        time.sleep(1)
-
-    def test_go_to_login_page_from_product_page(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
-        page = ProductPage(browser, link)
-        page.open()
-        page.should_be_login_link()
-        page.go_to_login_page()
+        page.test_can_add_product_to_basket(1)  # См.описание функции в product_page.py, чтобы узнать про параметр, если нужно
+        # page.should_be_disappeared_success_message()  # Не используется т.к. пропоадающих со временем элементов на странице нет
         time.sleep(1)
 
     def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser):
@@ -65,8 +55,16 @@ class TestProductPageByGuest:
         page.should_be_empty_basket()
         time.sleep(1)
 
+    def test_guest_can_go_to_login_page_from_product_page(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_be_login_link()
+        page.go_to_login_page()
+        time.sleep(1)
 
-# @pytest.mark.skip
+
+@pytest.mark.need_review
 class TestProductPageByUser:   # TestUserAddToBasketFromProductPage
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
